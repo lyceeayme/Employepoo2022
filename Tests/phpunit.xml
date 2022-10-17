@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap = "../vendor/autoload.php">
+    <php>
+        <const name="APP_USER" value="Aymé" />
+        <const name="APP_NAME" value="Etudiant" />
+        <const name="MINSALAIRE" value="20000" />
+    </php>
+    <testsuites>
+        <testsuite name="drh">
+            <directory>Classes</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
+
