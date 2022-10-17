@@ -14,7 +14,7 @@ final class ProjetTest extends TestCase{
     private $object;
     
     public function setUp(): void {
-        $dateAfter = date_add(new \DateTime(), date_interval_create_from_date_string("10 days"));
+        $dateAfter = new DateTime('+10 days');
         $this->object = new Projet(1, "Nom du Projet", $dateAfter, 12);
     }
     
@@ -22,6 +22,6 @@ final class ProjetTest extends TestCase{
      * @covers App\classes\metier\Projet::getId
      */
     public function testGetID() {
-        $this->assertSame(1, $this->object->getID());
+        $this->assertSame(1, $this->object->getId());
     }
 }
