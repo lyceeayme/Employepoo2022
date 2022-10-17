@@ -2,6 +2,7 @@
 
 namespace App\Classes\Metier;
 
+use DateTime;
 /**
  * Description of Projet
  *
@@ -10,7 +11,7 @@ namespace App\Classes\Metier;
 class Projet {
     private int $id;
     private string $nom;
-    private \DateTime $dateDebut;
+    private DateTime $dateDebut;
     private int $dureePrevue;
     
     /**
@@ -43,6 +44,17 @@ class Projet {
         if (!$nbr > 0){
             throw new AppException("La durée ne peut pas être modifié par un nombre inférieur à 0");
         }
+        else{
+            $this->dureePrevue = $nbr;
+        }
+    }
+    
+    /**
+     * 
+     * @return DateTime
+     */
+    public function getDateFinProjet() : DateTime{
+        return $this->getDateDebut()->add(new \DateInterval('P'.$this->getDureePrevue().'D'));
     }
     
     /**
