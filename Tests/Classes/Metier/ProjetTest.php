@@ -15,7 +15,7 @@ final class ProjetTest extends TestCase{
     
     public function setUp(): void {
         $dateAfter = new \DateTime('+10 days');
-        $this->object = new Projet(1, "Nom du Projet", $dateAfter, 12);
+        $this->object = new Projet(1, "Vente", $dateAfter, 12);
     }
     
     /**
@@ -31,5 +31,19 @@ final class ProjetTest extends TestCase{
     public function testGetDateFin(){
         $date = new \DateTime('+22 days');
         $this->assertSame($date,$this->object->getDateFinProjet());
+    }
+    
+    /**
+     * @covers App\Classes\Metier\Projet::getNom
+     */
+    public function testGetNom(){
+        $this->assertSame("Vente", $this->object->getNom());
+    }
+    
+    /**
+     * @covers App\Classes\Metier\Projet::getDureePrevue
+     */
+    public function testGetDureePrevue(){
+        $this->assertSame(12, $this->object->getDureePrevue());
     }
 }
