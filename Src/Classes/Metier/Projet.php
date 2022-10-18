@@ -3,17 +3,19 @@
 namespace App\Classes\Metier;
 
 use DateTime;
+
 /**
  * Description of Projet
  *
  * @author ayme.pignon
  */
 class Projet {
+
     private int $id;
     private string $nom;
     private DateTime $dateDebut;
     private int $dureePrevue;
-    
+
     /**
      * 
      * @param int $id
@@ -23,40 +25,38 @@ class Projet {
      * @throws Exception
      */
     function __construct(int $id, string $nom, DateTime $dateDebut, int $duree) {
-        if (!$duree>0){
+        if (!$duree > 0) {
             throw new Exception("La durée prévue doit être supérieur à 0");
-        }
-        else if ($dateDebut < new DateTime('+2 days')){
-            throw new Exception("L'heure de début ne peut pas être antérieur à la date d'aujourd'hui");        
+        } else if ($dateDebut < new DateTime('+2 days')) {
+            throw new Exception("L'heure de début ne peut pas être antérieur à la date d'aujourd'hui");
         }
         $this->id = $id;
         $this->nom = $nom;
         $this->dateDebut = $dateDebut;
         $this->dureePrevue = $duree;
     }
-    
+
     /**
      * 
      * @param int $nbr
      * @throws AppException
      */
-    public function set_dureePrevue (int $nbr){
-        if (!$nbr > 0){
+    public function set_dureePrevue(int $nbr) {
+        if (!$nbr > 0) {
             throw new AppException("La durée ne peut pas être modifié par un nombre inférieur à 0");
-        }
-        else{
+        } else {
             $this->dureePrevue = $nbr;
         }
     }
-    
+
     /**
      * 
      * @return DateTime
      */
-    public function getDateFinProjet() : DateTime{
-        return $this->getDateDebut()->add(new \DateInterval('P'.$this->getDureePrevue().'D'));
+    public function getDateFinProjet(): DateTime {
+        return $this->getDateDebut()->add(new \DateInterval('P' . $this->getDureePrevue() . 'D'));
     }
-    
+
     /**
      * 
      * @return int
@@ -64,7 +64,7 @@ class Projet {
     public function getId(): int {
         return $this->id;
     }
-    
+
     /**
      * 
      * @return string
@@ -72,7 +72,7 @@ class Projet {
     public function getNom(): string {
         return $this->nom;
     }
-    
+
     /**
      * 
      * @return DateTime
@@ -80,7 +80,7 @@ class Projet {
     public function getDateDebut(): DateTime {
         return $this->dateDebut;
     }
-    
+
     /**
      * 
      * @return int
@@ -88,5 +88,5 @@ class Projet {
     public function getDureePrevue(): int {
         return $this->dureePrevue;
     }
-    
+
 }
