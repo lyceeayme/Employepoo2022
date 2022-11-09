@@ -28,7 +28,11 @@ abstract class Employe {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->dateNaissance = $dateN;
-        $this->salaireA = $salaire;
+        if($salaire < MINSALAIRE){
+            $this->salaireA = $salaire;
+        }else{
+            throw new AppException("Le salaire ne peut pas être inférieur au salaire minimal");
+        }
     }
 
     /**
