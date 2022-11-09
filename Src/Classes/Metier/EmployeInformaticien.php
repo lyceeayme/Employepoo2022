@@ -2,7 +2,7 @@
 
 namespace App\Classes\Metier;
 
-final class EmployeInformaticien {
+final class EmployeInformaticien extends Employe{
 
     private float $primeM;
     private Projet $projet;
@@ -20,7 +20,7 @@ final class EmployeInformaticien {
         } else {
             $this->primeM = $prime;
         }
-    }
+    } 
 
     public function getGainBrutAnnuel(): float {
         return $this->salaireA + $this->primeM;

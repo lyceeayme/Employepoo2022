@@ -2,7 +2,7 @@
 
 namespace App\Classes\Metier;
 
-final class EmployeAdministratif {
+final class EmployeAdministratif extends Employe{
 
     private float $primeA;
 
