@@ -14,6 +14,7 @@ class Projet {
     private int $id;
     private string $nom;
     private DateTime $dateDebut;
+    // Durée du projet en jours
     private int $dureePrevue;
 
     /**
@@ -26,9 +27,9 @@ class Projet {
      */
     function __construct(int $id, string $nom, DateTime $dateDebut, int $duree) {
         if (!$duree > 0) {
-            throw new Exception("La durée prévue doit être supérieur à 0");
+            throw new AppException("La durée prévue doit être supérieur à 0");
         } else if ($dateDebut < new DateTime('+2 days')) {
-            throw new Exception("L'heure de début ne peut pas être antérieur à la date d'aujourd'hui");
+            throw new AppException("L'heure de début ne peut pas être antérieur à la date d'aujourd'hui");
         }
         $this->id = $id;
         $this->nom = $nom;
@@ -54,7 +55,7 @@ class Projet {
      * @return DateTime
      */
     public function getDateFinProjet(): DateTime {
-        return $this->getDateDebut()->add(new \DateInterval('P' . $this->getDureePrevue() . 'D'));
+        return $this->getDateDebut()->add(new \DateInterval('P' . $this->dureePrevue . 'D'));
     }
 
     /**

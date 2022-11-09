@@ -13,7 +13,7 @@ final class EmployeAdministratif {
 
     public function setPrime($prime) {
         if($prime < 0){
-            throw new Exception("La prime ne peut pas être négative");
+            throw new AppException("La prime ne peut pas être négative");
         }
         elseif($prime > $this->salaireA/12){
             $prime = $this->salaireA/12;
