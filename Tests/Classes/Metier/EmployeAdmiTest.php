@@ -17,7 +17,7 @@ final class EmployeAdmiTest extends TestCase {
     }
 
     /**
-     * @covers EmpoteAdministratifgetGainBrutAnnuel
+     * @covers App\Classes\Metier\EmployeAdministratif::getGainBrutAnnuel
      */
     public function testGetGainBrutAnnuel() {
         $this->object->setPrime(1500);
@@ -25,7 +25,7 @@ final class EmployeAdmiTest extends TestCase {
     }
 
     /**
-     * @covers EmpoteAdministratifgetGainBrutAnnuel
+     * @covers App\Classes\Metier\EmployeAdministratif::getGainBrutAnnuel
      */
     public function testSetPrime() {
         $this->object->setPrime(1500);
@@ -33,7 +33,7 @@ final class EmployeAdmiTest extends TestCase {
     }
 
     /**
-     * @covers EmpoteAdministratifgetGainBrutAnnuel
+     * @covers App\Classes\Metier\EmployeAdministratif::getGainBrutAnnuel
      */
     public function testSetPrimeNon() {
         $this->object->setPrime(9999999);
@@ -41,7 +41,7 @@ final class EmployeAdmiTest extends TestCase {
     }
 
     /**
-     * @covers EmpoteAdministratifgetGainBrutAnnuel
+     * @covers App\Classes\Metier\EmployeAdministratif::getGainBrutAnnuel
      */
     public function testSetPrimeNegatif() {
         $this->expectException(AppException::class);
